@@ -1,6 +1,5 @@
 'use client';
 
-import Image from "next/image";
 import Link from "next/link";
 
 interface PlaylistProps {
@@ -23,7 +22,7 @@ export default function Playlist({ playlist }: PlaylistProps) {
             key={item.id}
             className="bg-white rounded-lg shadow-md overflow-hidden flex flex-col hover:text-gray-600  text-gray-800"
           >
-            <Image
+            <img
               src={item.snippet.thumbnails.high.url}
               alt="thumbnail"
               className="w-full object-contain"
