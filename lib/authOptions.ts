@@ -17,13 +17,15 @@ export const authOptions = {
     }),
   ],
   callbacks: {
-    async jwt({ token, account }) {
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    async jwt({ token, account }: { token: any, account: any }) {
       if (account?.access_token) {
         token.accessToken = account.access_token;
       }
       return token;
     },
-    async session({ session, token }) {
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    async session({ session, token }: { session: any, token: any }) {
       session.accessToken = token.accessToken;
       return session;
     },

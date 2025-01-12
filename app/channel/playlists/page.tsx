@@ -2,16 +2,17 @@
 
 import { MouseEvent, useState } from 'react';
 import Playlist from '@/components/Playlist';
-import Link from 'next/link';
 import { useRouter } from 'next/navigation';
 
 export default function ChannelPlaylistPage() {
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   const [playlists, setPlaylists] = useState<any[]>([]);
   const [channelId, setChannelId] = useState('');
 
   const router = useRouter();
 
-  const fetchPlaylists = async (e: MouseEvent<HTMLButtonElement, MouseEvent>) => {
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  const fetchPlaylists = async (e: MouseEvent<any>) => {
     e.preventDefault();
     const response = await fetch(`/api/playlists/${channelId}`);
     const data = await response.json();

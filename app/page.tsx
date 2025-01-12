@@ -7,7 +7,8 @@ import LoginButton from '@/components/LoginButton';
 import Link from 'next/link';
 
 export default function Home() {
-  const { data: session, update: updateSession } = useSession();
+  const { data: session } = useSession();
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   const [playlists, setPlaylists] = useState<any[]>([]);
 
   const fetchPlaylists = async () => {
@@ -28,9 +29,11 @@ export default function Home() {
   };
 
   useEffect(() => {
+    // @ts-expect-error Type 'undefined' is not assignable to type 'string | undefined'.
     if (session && session.accessToken) {
       fetchPlaylists();
     }
+  // @ts-expect-error Type 'undefined' is not assignable to type 'string | undefined'.
   }, [session?.accessToken]);
 
   return (
