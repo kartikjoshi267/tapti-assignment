@@ -27,6 +27,7 @@ export async function GET(req: NextRequest, { params }: { params: Promise<{ chan
 
     // Fetch the items for each playlist
     const playlistsWithItems = await Promise.all(
+      // eslint-disable-next-line @typescript-eslint/no-explicit-any
       playlists.items.map(async (playlist: any) => {
         const itemsResponse = await fetch(
           `${YOUTUBE_API_URL}/playlistItems?part=snippet&playlistId=${playlist.id}&key=${API_KEY}`
