@@ -11,11 +11,12 @@ export const authOptions = {
           prompt: "consent",
           access_type: "offline",
           response_type: "code",
-          scope: "openid https://www.googleapis.com/auth/youtube.readonly"
+          scope: "openid https://www.googleapis.com/auth/youtube.readonly",
         },
       },
     }),
   ],
+  secret: process.env.SECRET,
   callbacks: {
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
     async jwt({ token, account }: { token: any, account: any }) {
